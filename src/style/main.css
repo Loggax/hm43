@@ -1,0 +1,132 @@
+/* mixin usage */
+/*--------------------------------
+	Responsive ratio
+	Used for creating scalable elements that maintain the same ratio
+	example:
+	.element {
+		@include responsive-ratio(400, 300);
+	}
+*/
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+@media (min-width: 1024px) {
+  main {
+    height: 100vh;
+  }
+}
+
+img {
+  width: 100%;
+}
+
+.grid-container {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "first" "second" "third" "fourth" "fifth";
+  margin: 0 auto;
+  gap: 10px;
+}
+@media (min-width: 768px) {
+  .grid-container {
+        grid-template-areas: "first second" "third third" "fourth fifth";
+  }
+}
+@media (min-width: 1024px) {
+  .grid-container {
+    width: 1170px;
+    max-width: 100%;
+        grid-template-areas: "third third first fourth" "third third second fifth";
+  }
+}
+
+.grid-item-1 {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  grid-area: third;
+}
+
+.grid-item-2 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: first;
+}
+
+.grid-item-3 {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: second;
+}
+
+.grid-item-4 {
+  -ms-grid-row: 7;
+  -ms-grid-column: 1;
+  grid-area: fourth;
+}
+
+.grid-item-5 {
+  -ms-grid-row: 9;
+  -ms-grid-column: 1;
+  grid-area: fifth;
+}
+
+@media (min-width: 768px) {
+  .grid-item-1 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+  }
+  .grid-item-2 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+  .grid-item-3 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+  }
+  .grid-item-4 {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+  }
+  .grid-item-5 {
+    -ms-grid-row: 3;
+    -ms-grid-column: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-item-1 {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+  }
+  .grid-item-2 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+  }
+  .grid-item-3 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 3;
+  }
+  .grid-item-4 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 4;
+  }
+  .grid-item-5 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 4;
+  }
+}
